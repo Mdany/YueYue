@@ -99,11 +99,9 @@ public abstract class BaseListFragment<A extends BaseListAdapter
         refreshData();
     }
 
-    protected void refreshData() {
-    }
+    protected abstract void refreshData();
 
-    protected void loadMoreData(){
-    }
+    protected abstract void loadMoreData();
 
     protected boolean hasData() {
         return data != null && !data.isEmpty();
