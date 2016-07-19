@@ -6,4 +6,39 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+
+    <!-- 基础字体大小 -->
+    <dimen name="text_size_normal_0">8sp</dimen>
+    <dimen name="text_size_normal_1">9sp</dimen>
+    <dimen name="text_size_normal_2">10sp</dimen>
+    <dimen name="text_size_normal_3">11sp</dimen>
+    <dimen name="text_size_normal_4">12sp</dimen>
+    <dimen name="text_size_normal_5">13sp</dimen>
+    <dimen name="text_size_normal_6">14sp</dimen>
+    <dimen name="text_size_normal_7">15sp</dimen>
+    <dimen name="text_size_normal_8">16sp</dimen>
+    <dimen name="text_size_normal_9">17sp</dimen>
+
+    <dimen name="text_size_big_0">18sp</dimen>
+    <dimen name="text_size_big_1">19sp</dimen>
+    <dimen name="text_size_big_2">20sp</dimen>
+    <dimen name="text_size_big_3">21sp</dimen>
+    <dimen name="text_size_big_4">22sp</dimen>
+    <dimen name="text_size_big_5">23sp</dimen>
+    <dimen name="text_size_big_6">24sp</dimen>
+    <dimen name="text_size_big_7">25sp</dimen>
+    <dimen name="text_size_big_8">26sp</dimen>
+    <dimen name="text_size_big_9">27sp</dimen>
+    <dimen name="text_size_big_10">28sp</dimen>
+    <dimen name="text_size_big_11">29sp</dimen>
+    <dimen name="text_size_big_12">30sp</dimen>
+    <!--基础dp-->
+    <dimen name="normal_dp_4">4sp</dimen>
+    <dimen name="normal_dp_8">8sp</dimen>
+    <dimen name="normal_dp_12">12sp</dimen>
+    <dimen name="normal_dp_16">16sp</dimen>
+    <dimen name="normal_dp_20">20sp</dimen>
+    <dimen name="normal_dp_24">24sp</dimen>
+    <dimen name="normal_dp_28">28sp</dimen>
+    <dimen name="normal_dp_32">32sp</dimen>
 </resources>

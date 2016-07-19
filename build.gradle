@@ -43,4 +43,6 @@ ext {
     gson = '2.4'
     picasso = '2.5.2'
     dagger = '2.2'
+    butterjnife = '7.0.1'
+    glide = '3.6.1'
 }

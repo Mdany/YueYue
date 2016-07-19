@@ -3,4 +3,30 @@
          (such as screen margins) for screens with more than 820dp of available width. This
          would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively). -->
     <dimen name="activity_horizontal_margin">64dp</dimen>
+
+    <!-- 基础字体大小 -->
+    <dimen name="text_size_normal_0">8sp</dimen>
+    <dimen name="text_size_normal_1">9sp</dimen>
+    <dimen name="text_size_normal_2">10sp</dimen>
+    <dimen name="text_size_normal_3">11sp</dimen>
+    <dimen name="text_size_normal_4">12sp</dimen>
+    <dimen name="text_size_normal_5">13sp</dimen>
+    <dimen name="text_size_normal_6">14sp</dimen>
+    <dimen name="text_size_normal_7">15sp</dimen>
+    <dimen name="text_size_normal_8">16sp</dimen>
+    <dimen name="text_size_normal_9">17sp</dimen>
+
+    <dimen name="text_size_big_0">18sp</dimen>
+    <dimen name="text_size_big_1">19sp</dimen>
+    <dimen name="text_size_big_2">20sp</dimen>
+    <dimen name="text_size_big_3">21sp</dimen>
+    <dimen name="text_size_big_4">22sp</dimen>
+    <dimen name="text_size_big_5">23sp</dimen>
+    <dimen name="text_size_big_6">24sp</dimen>
+    <dimen name="text_size_big_7">25sp</dimen>
+    <dimen name="text_size_big_8">26sp</dimen>
+    <dimen name="text_size_big_9">27sp</dimen>
+    <dimen name="text_size_big_10">28sp</dimen>
+    <dimen name="text_size_big_11">29sp</dimen>
+    <dimen name="text_size_big_12">30sp</dimen>
 </resources>

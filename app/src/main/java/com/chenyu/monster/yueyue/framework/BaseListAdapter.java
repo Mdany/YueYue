@@ -2,6 +2,11 @@ package com.chenyu.monster.yueyue.framework;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import com.chenyu.monster.yueyue.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,8 +15,8 @@ import java.util.List;
  * Created by chenyu on 16/2/4.
  */
 public abstract class BaseListAdapter<M extends Entity, VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<VH> {
-    private static final int TYPE_ITEM = 0;
-    private static final int TYPE_FOOTER = 1;
+    protected static final int TYPE_ITEM = 0;
+    protected static final int TYPE_FOOTER = 1;
     protected Context mContext;
     protected List<M> data;
     /**
@@ -57,6 +62,27 @@ public abstract class BaseListAdapter<M extends Entity, VH extends RecyclerView.
 
     public void setShowFooter(boolean showFooter) {
         isShowFooter = showFooter;
+    }
+
+    /**
+     * 得到跟布局
+     * @param context parent.getContext()
+     * @return footViewHolder
+     */
+    protected FootViewHolder getFootView(Context context) {
+        View contentView = LayoutInflater.from(context).inflate(R.layout.footer, null);
+        contentView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT));
+        return new FootViewHolder(contentView);
+    }
+
+    /**
+     * 底部布局
+     */
+    public class FootViewHolder extends RecyclerView.ViewHolder {
+        public FootViewHolder(View itemView) {
+            super(itemView);
+        }
     }
 
     /**

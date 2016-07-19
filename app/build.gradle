@@ -49,7 +49,10 @@ dependencies {
     compile "com.squareup.sqlbrite:sqlbrite:$rootProject.ext.sqlbrite"
     compile "com.google.code.gson:gson:$rootProject.ext.gson"
     compile "com.squareup.picasso:picasso:$rootProject.ext.picasso"
+    compile "com.github.bumptech.glide:glide:$rootProject.ext.glide"
 
+    //butter knife
+    compile "com.jakewharton:butterknife:$rootProject.ext.butterjnife"
     // Dagger dependencies
     apt "com.google.dagger:dagger-compiler:$rootProject.ext.dagger"
     provided 'org.glassfish:javax.annotation:10.0-b28'

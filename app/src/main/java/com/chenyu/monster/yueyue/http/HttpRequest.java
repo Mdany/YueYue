@@ -1,5 +1,7 @@
 package com.chenyu.monster.yueyue.http;
 
+import com.google.gson.GsonBuilder;
+
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
@@ -12,17 +14,21 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class HttpRequest {
     private final int TIME_OUT = 10;
-    private Retrofit retrofit;
+    public Retrofit retrofit;
     private static HttpRequest httpRequest;
 
-    public HttpRequest() {
+    private HttpRequest() {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
         builder.connectTimeout(TIME_OUT, TimeUnit.SECONDS);
         retrofit = new Retrofit.Builder()
                 .client(builder.build())
                 .baseUrl(Urls.baseUrl)
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory
+                        .create(new GsonBuilder()
+                                .setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+                                .serializeNulls()
+                                .create()))
                 .build();
     }
 

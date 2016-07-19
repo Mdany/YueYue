@@ -12,6 +12,5 @@ public class Urls {
     public static final String GANK_CATEGORY_IOS = "iOS";
     public static final String GANK_CATEGORY_WELFARE = "福利";
     public static final String GANK_CATEGORY_VEDIO = "休息视频";
-    public static final String GANK_CATEGORY_RANDOM = "瞎推荐";
 
 }

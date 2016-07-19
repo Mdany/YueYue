@@ -8,7 +8,7 @@ import java.util.List;
  * Created by chenyu on 16/4/26.
  */
 public class HttpResult<T extends Entity> {
-    private int count;
-    private boolean error;
-    private List<T> results;
+    public int count;
+    public boolean error;
+    public List<T> results;
 }
