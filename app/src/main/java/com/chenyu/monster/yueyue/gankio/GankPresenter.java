@@ -44,6 +44,7 @@ public class GankPresenter implements GankContract.Presenter {
 
     @Override
     public void loadGankData() {
+        mGankView.setProgressIndicator(true);
         loadGanks(new Subscriber<List<Gank>>() {
             @Override
             public void onCompleted() {
@@ -68,6 +69,7 @@ public class GankPresenter implements GankContract.Presenter {
     @Override
     public void loadMoreGankData() {
         ++page;
+        mGankView.setProgressIndicator(true);
         loadGanks(new Subscriber<List<Gank>>() {
             @Override
             public void onCompleted() {

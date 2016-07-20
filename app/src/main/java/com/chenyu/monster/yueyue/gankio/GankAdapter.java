@@ -32,7 +32,7 @@ public class GankAdapter extends BaseListAdapter<Gank, RecyclerView.ViewHolder> 
         if (viewType == TYPE_FOOTER) {
             return getFootView(parent.getContext());
         }
-        View contentView = View.inflate(parent.getContext(), R.layout.item_gank_welfare, parent);
+        View contentView = View.inflate(parent.getContext(), R.layout.item_gank_welfare, null);
         return new GankViewHolder(contentView);
     }
 

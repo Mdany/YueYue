@@ -22,7 +22,7 @@ public abstract class BaseListAdapter<M extends Entity, VH extends RecyclerView.
     /**
      * 是否显示加载更多
      */
-    private boolean isShowFooter;
+    private boolean isShowFooter = true;
 
     public BaseListAdapter(Context mContext) {
         this.mContext = mContext;
@@ -31,7 +31,6 @@ public abstract class BaseListAdapter<M extends Entity, VH extends RecyclerView.
     public BaseListAdapter(Context mContext, List<M> data) {
         this.mContext = mContext;
         this.data = data;
-        isShowFooter = true;
     }
 
     @Override
@@ -64,8 +63,14 @@ public abstract class BaseListAdapter<M extends Entity, VH extends RecyclerView.
         isShowFooter = showFooter;
     }
 
+    public int getCountOffset() {
+        int footCount = isShowFooter ? 1 : 0;
+        return footCount + 1;
+    }
+
     /**
      * 得到跟布局
+     *
      * @param context parent.getContext()
      * @return footViewHolder
      */

@@ -13,8 +13,15 @@ import java.util.List;
 /**
  * Created by chenyu on 16/7/14.
  */
-public class GankFragment extends BaseListFragment<GankAdapter, StaggeredGridLayoutManager, DefaultItemAnimator> implements GankContract.View {
+public class GankFragment extends BaseListFragment<GankAdapter
+        , StaggeredGridLayoutManager
+        , DefaultItemAnimator>
+        implements GankContract.View {
     private GankContract.Presenter mPresenter;
+
+    public static GankFragment newInstance(){
+        return new GankFragment();
+    }
 
     public GankFragment() {
         super(R.layout.f_recycle_list, R.id.refresh_srl, R.id.list_rlv);
@@ -61,22 +68,23 @@ public class GankFragment extends BaseListFragment<GankAdapter, StaggeredGridLay
     }
 
     @Override
-    public void setProgressIndicator(boolean isActive) {
-
-    }
-
-    @Override
     public void showLoadGankError(Throwable e) {
         Toast.makeText(mActivity, "error" + e.getMessage(), Toast.LENGTH_LONG).show();
     }
 
     @Override
     public void showLoadGankCompleted() {
+        setRefresh(false);
     }
 
     @Override
     public boolean isActive() {
         return isAdded();
+    }
+
+    @Override
+    public void setProgressIndicator(boolean isActive) {
+        setRefresh(isActive);
     }
 
     @Override
