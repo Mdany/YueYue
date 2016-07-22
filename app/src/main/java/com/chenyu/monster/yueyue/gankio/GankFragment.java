@@ -2,11 +2,14 @@ package com.chenyu.monster.yueyue.gankio;
 
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.view.View;
 import android.widget.Toast;
 
 import com.chenyu.monster.yueyue.R;
 import com.chenyu.monster.yueyue.framework.BaseListFragment;
+import com.chenyu.monster.yueyue.gankio.func.OnGirlTouchListener;
 import com.chenyu.monster.yueyue.gankio.model.Gank;
+import com.chenyu.monster.yueyue.girl.GirlActivity;
 
 import java.util.List;
 
@@ -16,10 +19,11 @@ import java.util.List;
 public class GankFragment extends BaseListFragment<GankAdapter
         , StaggeredGridLayoutManager
         , DefaultItemAnimator>
-        implements GankContract.View {
+        implements GankContract.View
+        , OnGirlTouchListener {
     private GankContract.Presenter mPresenter;
 
-    public static GankFragment newInstance(){
+    public static GankFragment newInstance() {
         return new GankFragment();
     }
 
@@ -55,6 +59,7 @@ public class GankFragment extends BaseListFragment<GankAdapter
 
     @Override
     public void viewDidLoad() {
+        adapter.setOnGirlTouchListener(this);
     }
 
     @Override
@@ -90,5 +95,10 @@ public class GankFragment extends BaseListFragment<GankAdapter
     @Override
     public void setPresenter(GankContract.Presenter presenter) {
         this.mPresenter = presenter;
+    }
+
+    @Override
+    public void onTouch(View v, View avatar, View card, Gank girl) {
+        startActivity(GirlActivity.newIntent(mActivity, girl.url, girl.desc));
     }
 }

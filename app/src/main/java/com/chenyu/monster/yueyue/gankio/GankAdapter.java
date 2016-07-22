@@ -2,6 +2,7 @@ package com.chenyu.monster.yueyue.gankio;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -32,7 +33,7 @@ public class GankAdapter extends BaseListAdapter<Gank, RecyclerView.ViewHolder> 
         if (viewType == TYPE_FOOTER) {
             return getFootView(parent.getContext());
         }
-        View contentView = View.inflate(parent.getContext(), R.layout.item_gank_welfare, null);
+        View contentView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_gank_welfare, parent, false);
         return new GankViewHolder(contentView);
     }
 
@@ -46,14 +47,18 @@ public class GankAdapter extends BaseListAdapter<Gank, RecyclerView.ViewHolder> 
             String text = girl.desc.length() > limit ? girl.desc.substring(0, limit) + "..." : girl.desc;
             gankHolder.title.setText(text);
             gankHolder.girl = girl;
-            Glide.with(mContext).load(girl.url).centerCrop().into(gankHolder.avatar).getSize(new SizeReadyCallback() {
-                @Override
-                public void onSizeReady(int width, int height) {
-                    if (!gankHolder.card.isShown()){
-                        gankHolder.card.setVisibility(View.VISIBLE);
-                    }
-                }
-            });
+            Glide.with(mContext)
+                    .load(girl.url)
+                    .centerCrop()
+                    .into(gankHolder.avatar)
+                    .getSize(new SizeReadyCallback() {
+                        @Override
+                        public void onSizeReady(int width, int height) {
+                            if (!gankHolder.card.isShown()) {
+                                gankHolder.card.setVisibility(View.VISIBLE);
+                            }
+                        }
+                    });
         }
     }
 
@@ -80,7 +85,8 @@ public class GankAdapter extends BaseListAdapter<Gank, RecyclerView.ViewHolder> 
 
         @Override
         public void onClick(View v) {
-            onGirlTouchListener.onTouch(v, avatar, card, girl);
+            if (onGirlTouchListener != null)
+                onGirlTouchListener.onTouch(v, avatar, card, girl);
         }
     }
 }

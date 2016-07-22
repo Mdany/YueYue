@@ -6,6 +6,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import butterknife.ButterKnife;
+
 /**
  * Created by chenyu on 16/1/26.
  */
@@ -22,7 +24,9 @@ public abstract class BaseActivity extends AppCompatActivity {
         initView();
     }
 
-    protected abstract void initView();
+    protected void initView(){
+        ButterKnife.bind(this);
+    }
 
     public void startActivity(Class<? extends BaseActivity> activityClass) {
         Intent intent = new Intent(this, activityClass);

@@ -1,13 +1,7 @@
 package com.chenyu.monster.yueyue.gankio;
 
 import com.chenyu.monster.yueyue.gankio.model.Gank;
-import com.chenyu.monster.yueyue.gankio.model.GankService;
-import com.chenyu.monster.yueyue.http.HttpRequest;
-import com.chenyu.monster.yueyue.http.HttpResult;
-import com.chenyu.monster.yueyue.http.HttpResultFunc;
-import com.chenyu.monster.yueyue.http.ResponseFunc;
-import com.chenyu.monster.yueyue.http.ScheduleCompat;
-import com.chenyu.monster.yueyue.http.Urls;
+import com.chenyu.monster.yueyue.gankio.model.GankModel;
 
 import java.util.List;
 
@@ -19,22 +13,16 @@ import rx.Subscriber;
  * the UI as required.
  */
 public class GankPresenter implements GankContract.Presenter {
-    /**
-     * 起始页码
-     */
-    private int page = 1;
-    /**
-     * 数量
-     */
-    private int count = 10;
 
     private final GankContract.View mGankView;
+    private final GankModel mGankModel;
 
     public GankPresenter(GankContract.View mGankView) {
         if (mGankView == null)
             throw new RuntimeException("mGankView can't be null");
         this.mGankView = mGankView;
         this.mGankView.setPresenter(this);
+        this.mGankModel = new GankModel();
     }
 
     @Override
@@ -45,7 +33,7 @@ public class GankPresenter implements GankContract.Presenter {
     @Override
     public void loadGankData() {
         mGankView.setProgressIndicator(true);
-        loadGanks(new Subscriber<List<Gank>>() {
+        mGankModel.loadGanks(new Subscriber<List<Gank>>() {
             @Override
             public void onCompleted() {
                 mGankView.showLoadGankCompleted();
@@ -68,9 +56,8 @@ public class GankPresenter implements GankContract.Presenter {
      */
     @Override
     public void loadMoreGankData() {
-        ++page;
         mGankView.setProgressIndicator(true);
-        loadGanks(new Subscriber<List<Gank>>() {
+        mGankModel.loadMoreGanks(new Subscriber<List<Gank>>() {
             @Override
             public void onCompleted() {
                 mGankView.showLoadGankCompleted();
@@ -88,15 +75,5 @@ public class GankPresenter implements GankContract.Presenter {
         });
     }
 
-    /**
-     * 加载福利数据
-     */
-    private void loadGanks(Subscriber<List<Gank>> gankSubscriber) {
-        GankService gankService = HttpRequest.getInstance().retrofit.create(GankService.class);
-        gankService.getGankByCountAndPage(Urls.GANK_CATEGORY_WELFARE, 10, page)
-                .flatMap(new ResponseFunc<HttpResult<Gank>>())
-                .flatMap(new HttpResultFunc<Gank>())
-                .compose(ScheduleCompat.<List<Gank>>applyIoSchedulers())
-                .subscribe(gankSubscriber);
-    }
+
 }

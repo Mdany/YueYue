@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.neenbedankt.android-apt'
+//apply plugin: 'com.neenbedankt.android-apt'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -11,6 +11,10 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+
+        jackOptions {
+            enabled true
+        }
     }
     buildTypes {
         debug {
@@ -27,6 +31,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             testProguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguardTest-rules.pro'
         }
+    }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
     }
 }
 
@@ -50,13 +58,16 @@ dependencies {
     compile "com.google.code.gson:gson:$rootProject.ext.gson"
     compile "com.squareup.picasso:picasso:$rootProject.ext.picasso"
     compile "com.github.bumptech.glide:glide:$rootProject.ext.glide"
+    compile "com.github.chrisbanes:PhotoView:$rootProject.ext.photoview"
 
     //butter knife
     compile "com.jakewharton:butterknife:$rootProject.ext.butterjnife"
     // Dagger dependencies
-    apt "com.google.dagger:dagger-compiler:$rootProject.ext.dagger"
-    provided 'org.glassfish:javax.annotation:10.0-b28'
-    compile "com.google.dagger:dagger:$rootProject.ext.dagger"
+    //follow https://code.google.com/p/android/issues/detail?id=203850
+    //Confict: com.neenbedankt.android-apt and java 8
+//    apt "com.google.dagger:dagger-compiler:$rootProject.ext.dagger"
+//    provided 'org.glassfish:javax.annotation:10.0-b28'
+//    compile "com.google.dagger:dagger:$rootProject.ext.dagger"
 
     compile 'de.hdodenhof:circleimageview:2.0.0'
     compile 'org.sufficientlysecure:html-textview:1.3'

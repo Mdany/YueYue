@@ -33,12 +33,13 @@
     <dimen name="text_size_big_11">29sp</dimen>
     <dimen name="text_size_big_12">30sp</dimen>
     <!--基础dp-->
-    <dimen name="normal_dp_4">4sp</dimen>
-    <dimen name="normal_dp_8">8sp</dimen>
-    <dimen name="normal_dp_12">12sp</dimen>
-    <dimen name="normal_dp_16">16sp</dimen>
-    <dimen name="normal_dp_20">20sp</dimen>
-    <dimen name="normal_dp_24">24sp</dimen>
-    <dimen name="normal_dp_28">28sp</dimen>
-    <dimen name="normal_dp_32">32sp</dimen>
+    <dimen name="normal_dp_1">1dp</dimen>
+    <dimen name="normal_dp_4">4dp</dimen>
+    <dimen name="normal_dp_8">8dp</dimen>
+    <dimen name="normal_dp_12">12dp</dimen>
+    <dimen name="normal_dp_16">16dp</dimen>
+    <dimen name="normal_dp_20">20dp</dimen>
+    <dimen name="normal_dp_24">24dp</dimen>
+    <dimen name="normal_dp_28">28dp</dimen>
+    <dimen name="normal_dp_32">32dp</dimen>
 </resources>

@@ -18,6 +18,7 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
+        maven { url "https://jitpack.io" }
     }
 }
 
@@ -27,13 +28,13 @@ task clean(type: Delete) {
 
 ext {
     // Sdk and tools
-    minSdkVersion = 10
-    targetSdkVersion = 22
-    compileSdkVersion = 23
-    buildToolsVersion = '23.0.2'
+    minSdkVersion = 14
+    targetSdkVersion = 24
+    compileSdkVersion = 24
+    buildToolsVersion = '24.0.1'
 
     // App dependencies
-    supportLibraryVersion = '23.1.1'
+    supportLibraryVersion = '24.1.0'
 
     //Dependencies lib
     retrofit = '2.0.2'
@@ -45,4 +46,5 @@ ext {
     dagger = '2.2'
     butterjnife = '7.0.1'
     glide = '3.6.1'
+    photoview = '1.2.6'
 }
