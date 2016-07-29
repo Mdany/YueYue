@@ -76,6 +76,9 @@ public class GankAdapter extends BaseListAdapter<Gank, RecyclerView.ViewHolder> 
 
         public GankViewHolder(View itemView) {
             super(itemView);
+            avatar = (RatioImageView) itemView.findViewById(R.id.iv_avatar);
+            title = (TextView) itemView.findViewById(R.id.tv_title);
+
             card = itemView;
             card.setOnClickListener(this);
             ButterKnife.bind(this, itemView);

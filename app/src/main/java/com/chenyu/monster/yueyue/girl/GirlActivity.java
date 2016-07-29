@@ -48,6 +48,10 @@ public class GirlActivity extends BaseActivity implements GirlContract.View {
 
     @Override
     protected void initView() {
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        appBarLayout = (AppBarLayout) findViewById(R.id.app_bar_layout);
+        girl = (ImageView) findViewById(R.id.iv_girl);
+
         super.initView();
         new GirlPresenter(this);
     }
