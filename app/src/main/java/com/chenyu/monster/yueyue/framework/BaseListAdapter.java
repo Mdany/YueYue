@@ -69,7 +69,7 @@ public abstract class BaseListAdapter<M extends Entity, VH extends RecyclerView.
     }
 
     /**
-     * 得到跟布局
+     * 得到根布局
      *
      * @param context parent.getContext()
      * @return footViewHolder

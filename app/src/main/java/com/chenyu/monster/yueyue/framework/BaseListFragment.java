@@ -145,4 +145,22 @@ public abstract class BaseListFragment<A extends BaseListAdapter
     public void setCanChildScrollUpCallback(MultiSwipeRefreshLayout.CanChildScrollUpCallback callback) {
         swipeRefreshLayout.setCanChildScrollUpCallback(callback);
     }
+
+    /**
+     * fragment中可以通过这个方法直接找到需要的view，而不需要进行类型强转
+     * @param viewId
+     * @param <E>
+     * @return
+     */
+    protected <E extends View> E findView(int viewId) {
+        if (rootView != null) {
+            E view = (E) mViews.get(viewId);
+            if (view == null) {
+                view = (E) rootView.findViewById(viewId);
+                mViews.put(viewId, view);
+            }
+            return view;
+        }
+        return null;
+    }
 }
