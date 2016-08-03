@@ -47,7 +47,7 @@ public class GankFragment extends BaseListFragment<GankAdapter
     }
 
     @Override
-    protected void initData() {
+    protected void refreshData() {
         mPresenter.loadGankData();
     }
 
