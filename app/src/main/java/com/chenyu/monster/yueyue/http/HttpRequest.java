@@ -15,7 +15,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class HttpRequest {
     private final int TIME_OUT = 10;
     public Retrofit retrofit;
-    private static HttpRequest httpRequest;
+//    private static HttpRequest httpRequest;
 
     private HttpRequest() {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
@@ -33,10 +33,11 @@ public class HttpRequest {
     }
 
     public static HttpRequest getInstance() {
-        if (httpRequest == null) {
-            httpRequest = new HttpRequest();
-        }
-        return httpRequest;
+//        if (httpRequest == null) {
+//            httpRequest = new HttpRequest();
+//        }
+//        return httpRequest;
+        return InstanceHolder.INSTANCE;
     }
 
     /**
@@ -69,4 +70,11 @@ public class HttpRequest {
 //                .compose(ScheduleCompat.<Subject>applyIoSchedulers())
 //                .subscribe(subscriber);
 //    }
+
+    /**
+     * 单例模式,双检查
+     */
+    private static class InstanceHolder{
+        static HttpRequest INSTANCE = new HttpRequest();
+    }
 }
