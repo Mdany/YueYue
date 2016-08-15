@@ -19,7 +19,8 @@ public class HttpRequest {
 
     private HttpRequest() {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
-        builder.connectTimeout(TIME_OUT, TimeUnit.SECONDS);
+        builder.connectTimeout(TIME_OUT, TimeUnit.SECONDS)
+                .addInterceptor(new HttpHeaderInterceptor());
         retrofit = new Retrofit.Builder()
                 .client(builder.build())
                 .baseUrl(Urls.baseUrl)
@@ -74,7 +75,7 @@ public class HttpRequest {
     /**
      * 单例模式,双检查
      */
-    private static class InstanceHolder{
+    private static class InstanceHolder {
         static HttpRequest INSTANCE = new HttpRequest();
     }
 }
