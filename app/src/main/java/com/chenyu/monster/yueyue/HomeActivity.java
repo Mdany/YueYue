@@ -1,5 +1,6 @@
 package com.chenyu.monster.yueyue;
 
+import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
@@ -10,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.chenyu.monster.yueyue.city.CityActivity;
 import com.chenyu.monster.yueyue.framework.BaseActivity;
 import com.chenyu.monster.yueyue.gankio.GankFragment;
 import com.chenyu.monster.yueyue.gankio.GankPresenter;
@@ -18,10 +20,14 @@ import butterknife.Bind;
 
 public class HomeActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    @Bind(R.id.toolbar) Toolbar toolbar;
-    @Bind(R.id.fab) FloatingActionButton fab;
-    @Bind(R.id.drawer_layout) DrawerLayout drawer;
-    @Bind(R.id.nav_view) NavigationView navigationView;
+    @Bind(R.id.toolbar)
+    Toolbar toolbar;
+    @Bind(R.id.fab)
+    FloatingActionButton fab;
+    @Bind(R.id.drawer_layout)
+    DrawerLayout drawer;
+    @Bind(R.id.nav_view)
+    NavigationView navigationView;
 
     @Override
     protected int getLayoutId() {
@@ -93,7 +99,8 @@ public class HomeActivity extends BaseActivity
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {
-
+            Intent intent = new Intent(this, CityActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {

@@ -35,7 +35,6 @@ public class GankModel {
      * 加载福利数据
      */
     public void loadGanks(Subscriber<List<Gank>> gankSubscriber) {
-        GankService gankService = HttpRequest.getInstance().retrofit.create(GankService.class);
         gankService.getGankByCountAndPage(Urls.GANK_CATEGORY_WELFARE, count, page)
                 .flatMap(new ResponseFunc<HttpResult<Gank>>())
                 .flatMap(new HttpResultFunc<Gank>())

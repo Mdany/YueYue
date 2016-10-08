@@ -5,7 +5,8 @@ package com.chenyu.monster.yueyue.http;
  */
 public class Urls {
 //    public static String baseUrl = "https://api.douban.com/v2/movie/";
-    public static final String baseUrl = "http://gank.io/api/";
+//    public static final String baseUrl = "http://gank.io/api/";
+    public static final String baseUrl = "http://apis.map.qq.com/ws/district/v1/";
 
     //分类名称
     public static final String GANK_CATEGORY_ANDROID = "Android";
